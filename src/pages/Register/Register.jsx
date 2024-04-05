@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import "./MainPage.css";
+import "./Register.css";
 
-export default function MainPage() {
+export default function Register() {
   return (
     <>
       <div id="container">
