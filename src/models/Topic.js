@@ -1,5 +1,5 @@
 export const getTopics = async () => {
-    const req = await fetch(`http://localhost:3000/topics`, {
+    const req = await fetch(`http://localhost:5000/topics`, {
       headers: {
         "Accept": "application/json",
         "Content-Type": "application/json",
@@ -14,7 +14,7 @@ export const getTopics = async () => {
     }
   };
   export const getTopic = async (id) => {
-    const req = await fetch(`http://localhost:3000/topics/${id}`, {
+    const req = await fetch(`http://localhost:5000/topics/${id}`, {
       headers: {
         "Accept": "application/json",
         "Content-Type": "application/json",
@@ -30,7 +30,7 @@ export const getTopics = async () => {
     }
   };
   export const createTopic = async (formData) => {
-    const req = await fetch(`http://localhost:3000/topics`, {
+    const req = await fetch(`http://localhost:5000/topics`, {
       headers: {
         "Accept": "application/json",
         "Content-Type": "application/json",
@@ -47,7 +47,7 @@ export const getTopics = async () => {
   };
   
   export const deleteTopic = async (id) => {
-    const req = await fetch(`http://localhost:3000/topics/${id}`, {
+    const req = await fetch(`http://localhost:5000/topics/${id}`, {
       headers: {
         "Accept": "application/json",
         "Content-Type": "application/json",

@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import "./Teacher.css";
 import TextField from "@mui/material/TextField";
 import Radio from "@mui/material/Radio";
@@ -10,39 +9,38 @@ import Checkbox from "@mui/material/Checkbox";
 import FormGroup from "@mui/material/FormGroup";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
-import { Link, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { createCat } from "../../models/Cat";
-
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
-
-const [formData, setFormData] = useState();
-const [info, setInfo] = useState();
-const navigate = useNavigate();
-
-const postForm = async () => {
-  const topic = await createTopic(formData);
-  if (topic.status === 201) {
-    redirectToSuccessPage(topic.payload._id);
-  } else {
-    setInfo(topic.msg);
-  }
-};
-
-const handleChange = (e) => {
-  setFormData({ ...formData, [e.target.name]: e.target.value });
-};
-
-const handlePost = (e) => {
-  e.preventDefault();
-  postForm();
-};
-
-const redirectToSuccessPage = (id) => {
-  return navigate(`/createdcat/${id}`);
-};
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { createTopic } from "../../models/Topic";
 
 export default function Teacher() {
+  const label = { inputProps: { "aria-label": "Checkbox demo" } };
+
+  const [formData, setFormData] = useState();
+  const [info, setInfo] = useState();
+  const navigate = useNavigate();
+
+  const postForm = async () => {
+    const topic = await createTopic(formData);
+    if (topic.status === 201) {
+      redirectToSuccessPage(topic.payload._id);
+    } else {
+      setInfo(topic.msg);
+    }
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handlePost = (e) => {
+    e.preventDefault();
+    postForm();
+  };
+
+  const redirectToSuccessPage = (id) => {
+    return navigate(`/createdcat/${id}`);
+  };
   return (
     <>
       <div id="teacher">
