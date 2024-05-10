@@ -51,6 +51,7 @@ export default function Teacher() {
               label="Název práce"
               variant="filled"
               name="name"
+              required
               onChange={(e) => handleChange(e)}
             />
             <br />
@@ -63,6 +64,7 @@ export default function Teacher() {
               multiline
               rows={12}
               name="description"
+              required
               onChange={(e) => handleChange(e)}
             />
           </div>
@@ -76,6 +78,7 @@ export default function Teacher() {
               <RadioGroup
                 aria-labelledby="demo-radio-buttons-group-label"
                 name="year"
+                required
               >
                 <FormControlLabel
                   value="2023/24"
@@ -106,6 +109,7 @@ export default function Teacher() {
               <RadioGroup
                 aria-labelledby="demo-radio-buttons-group-label"
                 name="type"
+                required
               >
                 <FormControlLabel
                   value="Ročníková práce"
@@ -134,6 +138,7 @@ export default function Teacher() {
               <RadioGroup
                 aria-labelledby="demo-radio-buttons-group-label"
                 name="subject"
+                required
               >
                 <FormControlLabel
                   value="Hardware"
