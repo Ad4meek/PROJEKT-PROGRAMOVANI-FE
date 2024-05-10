@@ -50,6 +50,7 @@ export default function Teacher() {
               id="filled-basic"
               label="Název práce"
               variant="filled"
+              name="name"
               onChange={(e) => handleChange(e)}
             />
             <br />
@@ -61,6 +62,7 @@ export default function Teacher() {
               placeholder="Popis"
               multiline
               rows={12}
+              name="description"
               onChange={(e) => handleChange(e)}
             />
           </div>
@@ -73,7 +75,7 @@ export default function Teacher() {
               </FormLabel>
               <RadioGroup
                 aria-labelledby="demo-radio-buttons-group-label"
-                name="radio-buttons-group"
+                name="year"
               >
                 <FormControlLabel
                   value="2023/24"
@@ -97,54 +99,75 @@ export default function Teacher() {
             </FormControl>
             <br />
             <br />
-            <FormGroup>
-              <FormLabel>Typ práce</FormLabel>
-              <FormControlLabel
-                control={<Checkbox />}
-                label="Ročníková práce"
-                onChange={(e) => handleChange(e)}
-              />
-              <FormControlLabel
-                control={<Checkbox />}
-                label="Maturitní práce"
-                onChange={(e) => handleChange(e)}
-              />
-              <FormControlLabel
-                control={<Checkbox />}
-                label="Bakalářská práce"
-                onChange={(e) => handleChange(e)}
-              />
-            </FormGroup>
+            <FormControl>
+              <FormLabel id="demo-radio-buttons-group-label">
+                Typ práce
+              </FormLabel>
+              <RadioGroup
+                aria-labelledby="demo-radio-buttons-group-label"
+                name="type"
+              >
+                <FormControlLabel
+                  value="Ročníková práce"
+                  control={<Radio />}
+                  label="Ročníková práce"
+                  onChange={(e) => handleChange(e)}
+                />
+                <FormControlLabel
+                  value="Maturitní práce"
+                  control={<Radio />}
+                  label="Maturitní práce"
+                  onChange={(e) => handleChange(e)}
+                />
+                <FormControlLabel
+                  value="Bakalářská práce"
+                  control={<Radio />}
+                  label="Bakalářská práce"
+                  onChange={(e) => handleChange(e)}
+                />
+              </RadioGroup>
+            </FormControl>
             <br />
             <br />
-            <FormGroup>
-              <FormLabel>Předmět</FormLabel>
-              <FormControlLabel
-                control={<Checkbox />}
-                label="Hardware"
-                onChange={(e) => handleChange(e)}
-              />
-              <FormControlLabel
-                control={<Checkbox />}
-                label="Programování"
-                onChange={(e) => handleChange(e)}
-              />
-              <FormControlLabel
-                control={<Checkbox />}
-                label="Webové aplikace"
-                onChange={(e) => handleChange(e)}
-              />
-              <FormControlLabel
-                control={<Checkbox />}
-                label="Počítačové sítě"
-                onChange={(e) => handleChange(e)}
-              />
-              <FormControlLabel
-                control={<Checkbox />}
-                label="Číslicová technika"
-                onChange={(e) => handleChange(e)}
-              />
-            </FormGroup>
+            <FormControl>
+              <FormLabel id="demo-radio-buttons-group-label">Předmět</FormLabel>
+              <RadioGroup
+                aria-labelledby="demo-radio-buttons-group-label"
+                name="subject"
+              >
+                <FormControlLabel
+                  value="Hardware"
+                  control={<Radio />}
+                  label="Hardware"
+                  onChange={(e) => handleChange(e)}
+                />
+                <FormControlLabel
+                  value="Programování"
+                  control={<Radio />}
+                  label="Programování"
+                  onChange={(e) => handleChange(e)}
+                />
+                <FormControlLabel
+                  value="Webové aplikace"
+                  control={<Radio />}
+                  label="Webové aplikace"
+                  onChange={(e) => handleChange(e)}
+                />
+                <FormControlLabel
+                  value="Počítačové sítě"
+                  control={<Radio />}
+                  label="Počítačové sítě"
+                  onChange={(e) => handleChange(e)}
+                />
+                <FormControlLabel
+                  value="Číslicová technika"
+                  control={<Radio />}
+                  label="Číslicová technika"
+                  onChange={(e) => handleChange(e)}
+                />
+              </RadioGroup>
+            </FormControl>
+
             <br />
             <br />
           </div>
