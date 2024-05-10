@@ -9,8 +9,7 @@ export const getTopics = async () => {
     const data = await req.json();
     return {
       status: req.status,
-      payload: data.payload,
-      msg: data.msg
+      payload: data,
     }
   };
   export const getTopic = async (id) => {
@@ -25,8 +24,7 @@ export const getTopics = async () => {
     
     return {
       status: req.status,
-      payload: data.payload,
-      msg: data.msg
+      payload: data,
     }
   };
   export const createTopic = async (formData) => {
