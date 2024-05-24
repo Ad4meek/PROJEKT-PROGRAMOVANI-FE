@@ -1,0 +1,20 @@
+#teacher .container {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+}
+#teacher .columnLeft {
+    margin-right: 5rem;
+    width: 40%;
+}
+#teacher .columnRight {
+    width: 20%;
+}
+
+#teacher .sendBtn {
+    text-align: center;
+    padding: 2rem;
+}
+#teacher .sendBtn button{
+    width: 200px;
+}
