@@ -35,7 +35,7 @@ export default function TopicView() {
     if (topic.name === formData) {
       const data = await deleteTopic(id);
       if (data.status === 200) {
-        navigate("/");
+        navigate("/teachertopiclist");
       } else {
         setInfo(data.msg);
       }
