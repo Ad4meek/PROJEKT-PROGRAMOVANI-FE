@@ -62,8 +62,6 @@ export default function TopicView() {
       <h1>Topic view</h1>
       <p>{id}</p>
       <p>{topic.name}</p>
-      <p>{topic.legs}</p>
-      <p>{topic.color}</p>
       <form>
         <input type="text" placeholder={topic.name} onChange={handleChange} />
         <button onClick={handleDelete}>Delete</button>
