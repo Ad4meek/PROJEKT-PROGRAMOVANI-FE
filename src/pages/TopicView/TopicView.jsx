@@ -1,6 +1,9 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { getTopic, deleteTopic } from "../../models/Topic";
 import { useState, useEffect } from "react";
+import * as React from 'react';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 export default function TopicView() {
   const { id } = useParams();
@@ -60,18 +63,23 @@ export default function TopicView() {
   return (
     <>
       <h1>Topic view</h1>
-      <p>{id}</p>
-      <p>{topic.name}</p>
+      <div className="line"></div>
+      <div className="params">
+        <p>{topic.name}</p>
+        <p>{topic.descrition}</p>
+        <p>{topic.year}</p>
+        <p>{topic.type}</p>
+        <p>{topic.subject}</p>
+      </div>
       <form>
         <input type="text" placeholder={topic.name} onChange={handleChange} />
         <button onClick={handleDelete}>Delete</button>
         <p>{info}</p>
       </form>
-      <Link to={`/updatetopic/${id}`}>
-        <p>Update topic</p>
-      </Link>
-      <Link to={"/"}>
-        <p>Go back</p>
+      <Link to={"/teachertopiclist"}>
+      <div className="btn">
+        <Button variant="outlined">Go back</Button>
+      </ div>
       </Link>
     </>
   );

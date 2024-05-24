@@ -15,7 +15,7 @@ export default function TeacherTopicLink(props) {
 
         <div className="button">
         <Button variant="contained" endIcon={<SendIcon />}>
-          Look
+          Have a look
         </Button>
         </div>
       </Link>

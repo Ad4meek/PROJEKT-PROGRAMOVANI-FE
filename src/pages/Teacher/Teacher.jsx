@@ -22,8 +22,9 @@ export default function Teacher() {
 
   const postForm = async () => {
     const topic = await createTopic(formData);
-    if (topic.status === 201) {
-      redirectToSuccessPage(topic.payload._id);
+    
+    if (topic.status === 200) {
+      return navigate("/teachertopiclist")
     } else {
       setInfo(topic.msg);
     }
