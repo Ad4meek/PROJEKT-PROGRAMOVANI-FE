@@ -11,11 +11,11 @@ export default function TeacherTopicLink(props) {
       <p>{props.name}</p>
       <p>{props.year}</p>
       <p>{props.subject}</p>
-      <Link to={`/topicview/${props._id.$oid}`}>
+      <Link to={`/teachertopicview/${props._id.$oid}`}>
 
         <div className="button">
         <Button variant="contained" endIcon={<SendIcon />}>
-          Have a look
+          Show details
         </Button>
         </div>
       </Link>

@@ -7,7 +7,7 @@ export default function MainPage() {
     <>
       <div id="mainpage">
         <div className="title">
-          <h1> Main page</h1>
+          <h1> ŠKOLA OFFLINE </h1>
         </div>
         <Link to={"/login"}>
           <Button className="btnRegister" variant="outlined">
