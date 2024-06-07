@@ -69,6 +69,7 @@ export default function StudentTopicView() {
         <p>{topic.year}</p>
         <p>{topic.type}</p>
         <p>{topic.subject}</p>
+        <p>{topic.status}</p>
       </div>
       <form>
         <input type="text" placeholder={topic.name} onChange={handleChange} />

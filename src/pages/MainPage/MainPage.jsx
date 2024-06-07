@@ -9,7 +9,7 @@ export default function MainPage() {
         <div className="title">
           <h1> ŠKOLA OFFLINE </h1>
         </div>
-        <Link to={"/login"}>
+        <Link to={"http://localhost:5000/login"}>
           <Button className="btnRegister" variant="outlined">
             LOGIN
           </Button>

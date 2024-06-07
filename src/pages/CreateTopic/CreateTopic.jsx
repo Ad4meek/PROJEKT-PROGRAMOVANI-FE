@@ -7,6 +7,7 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { createTopic } from "../../models/Topic";
@@ -20,9 +21,9 @@ export default function CreateTopic() {
 
   const postForm = async () => {
     const topic = await createTopic(formData);
-    
+
     if (topic.status === 200) {
-      return navigate("/teacher")
+      return navigate("/teacher");
     } else {
       setInfo(topic.msg);
     }
@@ -42,6 +43,9 @@ export default function CreateTopic() {
   };
   return (
     <>
+      <Link to={"/teacher"}>
+        <Button variant="outlined">Go back</Button>
+      </Link>
       <div id="teacher">
         <div className="container">
           <div className="columnLeft">
