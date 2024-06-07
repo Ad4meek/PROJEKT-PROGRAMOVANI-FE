@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./MainPage.css";
 import Button from "@mui/material/Button";
 
+
 export default function MainPage() {
   return (
     <>
@@ -9,7 +10,7 @@ export default function MainPage() {
         <div className="title">
           <h1> Main page</h1>
         </div>
-        <Link to={"/login"}>
+        <Link to={"http://localhost:5000/login"}>
           <Button className="btnRegister" variant="outlined">
             LOGIN
           </Button>

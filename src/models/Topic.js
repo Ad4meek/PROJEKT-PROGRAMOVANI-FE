@@ -4,6 +4,7 @@ export const getTopics = async () => {
         "Accept": "application/json",
         "Content-Type": "application/json",
       },
+      credentials: "include",
       method: "GET",
     });
     const data = await req.json();

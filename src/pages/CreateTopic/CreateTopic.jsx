@@ -1,19 +1,17 @@
-import "./Teacher.css";
+import "./CreateTopic.css";
 import TextField from "@mui/material/TextField";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-import Checkbox from "@mui/material/Checkbox";
-import FormGroup from "@mui/material/FormGroup";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { createTopic } from "../../models/Topic";
 
-export default function Teacher() {
+export default function CreateTopic() {
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
   const [formData, setFormData] = useState();
@@ -24,7 +22,7 @@ export default function Teacher() {
     const topic = await createTopic(formData);
     
     if (topic.status === 200) {
-      return navigate("/teachertopiclist")
+      return navigate("/teacher")
     } else {
       setInfo(topic.msg);
     }

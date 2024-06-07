@@ -2,10 +2,9 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { getTopic, deleteTopic } from "../../models/Topic";
 import { useState, useEffect } from "react";
 import * as React from 'react';
-import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
-export default function TopicView() {
+export default function TeacherTopicView() {
   const { id } = useParams();
   const [topic, setTopic] = useState();
   const [isLoaded, setLoaded] = useState(false);
@@ -35,7 +34,7 @@ export default function TopicView() {
     if (topic.name === formData) {
       const data = await deleteTopic(id);
       if (data.status === 200) {
-        navigate("/teachertopiclist");
+        navigate("/teacher");
       } else {
         setInfo(data.msg);
       }
@@ -76,7 +75,7 @@ export default function TopicView() {
         <button onClick={handleDelete}>Delete</button>
         <p>{info}</p>
       </form>
-      <Link to={"/teachertopiclist"}>
+      <Link to={"/teacher"}>
       <div className="btn">
         <Button variant="outlined">Go back</Button>
       </ div>
