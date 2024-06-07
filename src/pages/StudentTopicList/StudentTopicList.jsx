@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import TeacherTopicLink from "./TeacherTopicLink";
+import StudentTopicLink from "./StudentTopicLink";
 import { useState, useEffect } from "react";
 import { getTopics } from "../../models/Topic";
-import "./TeacherTopicList.css"
+import "./StudentTopicList.css"
 import * as React from 'react';
 import Button from '@mui/material/Button';
 
-export default function TeacherTopicList() {
+export default function StudentTopicList() {
   const [topics, setTopics] = useState();
   const [isLoaded, setLoaded] = useState(false);
 
@@ -43,16 +43,10 @@ export default function TeacherTopicList() {
     <>
       <h1>List of works</h1>
       <div className="line"></div>
-      <Link to={"/createtopic"}>
-        <div className="btn">
-          <Button variant="outlined">Create topic</Button>
-        </div>
-      </Link>
-      
       <div className="pepa">
 
       {topics.map((topic, index) => (
-        <TeacherTopicLink key={index} {...topic} />
+        <StudentTopicLink key={index} {...topic} />
       ))}
       </div>
     </>
