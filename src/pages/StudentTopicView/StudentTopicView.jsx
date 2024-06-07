@@ -69,6 +69,7 @@ export default function StudentTopicView() {
         <p>{topic.year}</p>
         <p>{topic.type}</p>
         <p>{topic.subject}</p>
+        <p>{topic.status}</p>
       </div>
       <form>
         <input type="text" placeholder={topic.name} onChange={handleChange} />
@@ -76,6 +77,9 @@ export default function StudentTopicView() {
         <p>{info}</p>
       </form>
       <Link to={"/teacher"}>
+        <div className="btn">
+          <Button variant="outlined">Go back</Button>
+        </div>
         <div className="btn">
           <Button variant="outlined">Go back</Button>
         </div>

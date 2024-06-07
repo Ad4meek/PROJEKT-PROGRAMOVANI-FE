@@ -19,7 +19,7 @@ export default function TeacherTopicView() {
       setTopic(data.payload);
       setLoaded(true);
     }
-  }
+  };
 
   useEffect(() => {
     load();
@@ -27,7 +27,7 @@ export default function TeacherTopicView() {
 
   const handleChange = (e) => {
     setFormData(e.target.value);
-  }
+  };
 
   const handleDelete = async (e) => {
     e.preventDefault();
@@ -41,14 +41,14 @@ export default function TeacherTopicView() {
     } else {
       setInfo("Wrong input!");
     }
-  }
+  };
 
   if (isLoaded === null) {
     return (
       <>
         <p>Topic not found</p>
       </>
-    )
+    );
   }
 
   if (!isLoaded) {
@@ -56,7 +56,7 @@ export default function TeacherTopicView() {
       <>
         <p>Topic is loading...</p>
       </>
-    )
+    );
   }
 
   return (
@@ -69,10 +69,11 @@ export default function TeacherTopicView() {
         <p>{topic.year}</p>
         <p>{topic.type}</p>
         <p>{topic.subject}</p>
+        <p>{topic.status}</p>
       </div>
       <form>
         <input type="text" placeholder={topic.name} onChange={handleChange} />
-        <button onClick={handleDelete}>Delete</button>
+        <button onClick={handleDelete}>Assign</button>
         <p>{info}</p>
       </form>
       <Link to={"/teacher"}>

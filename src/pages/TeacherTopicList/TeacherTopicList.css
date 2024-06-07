@@ -1,45 +1,57 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
 
-*  {
-    font-family: "Roboto", sans-serif;
-  }
+h1 {
+  text-align: center;
+}
 
-  h1{
-    text-align: center;
-  }
+.line {
+  border-top: 1px solid grey;
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-top: 40px;
+  margin-bottom: 80px;
+}
 
-  .line{
-    border-top: 1px solid grey;
-    margin-left: 3%;
-    margin-right: 3%;
-    margin-top: 40px;
-    margin-bottom: 80px;
-  }
+.flex {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  text-align: center;
+  align-items: center;
+  border: 0.5px solid gray;
+  border-radius: 5px;
+  margin-top: 15px;
+  padding: 7px;
+  gap: 15px;
+  background-color: whitesmoke;
+  margin-left: 2%;
+  margin-right: 2%;
+}
 
-  .flex {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    text-align: center;
-    border: 0.5px solid gray;
-    border-radius: 5px;
-   
-    margin-top: 15px;
-    padding: 7px;
-    background-color: whitesmoke;
-    margin-left: 5%;
-    margin-right: 5%;
-  }
-  .pepa{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .button{
-    margin-top: 7px;
-    margin-right: 15px;
-
+.accordion {
+  min-width: 500px;
+  word-wrap: break-word;
 }
 
 .btn {
   text-align: center;
-  padding: 20px 0 60px 0;
+}
+
+.btnNotChosen {
+  color: #2e7d32;
+  border-radius: 6px;
+  border: 1px solid #2e7d32;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 9px 0;
+}
+
+.btnChosen {
+  color: red;
+  border-radius: 6px;
+  border: 1px solid red;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 9px;
 }
