@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
 export default function StudentTopicLink(props) {
-  const rank = (
+  let rank = (
     <Button variant="contained" color="success">
       CHOOSE
     </Button>

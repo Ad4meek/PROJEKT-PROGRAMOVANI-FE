@@ -5,6 +5,7 @@ import { getTopics } from "../../models/Topic";
 import "./TeacherTopicList.css";
 import * as React from "react";
 import Button from "@mui/material/Button";
+import { getCookie } from "../../models/Cookie";
 
 export default function TeacherTopicList() {
   const [topics, setTopics] = useState();
