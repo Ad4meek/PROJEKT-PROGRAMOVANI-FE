@@ -32,7 +32,7 @@ export default function TeacherTopicLink(props) {
         <div className="flex">
           {/*<p>{props.student}</p> */}
           <div>
-            <p>Mirek Kokot</p>
+            <p>{props.student}</p>
           </div>
           <div>
             <p>{props.name}</p>

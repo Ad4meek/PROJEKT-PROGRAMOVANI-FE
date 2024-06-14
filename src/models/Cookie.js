@@ -12,7 +12,6 @@ export const getCookie = async (formData) => {
   const data = await req.json();
   return {
     status: req.status,
-    payload: data.payload,
-    msg: data.msg,
+    payload: data,
   };
 };

@@ -5,10 +5,20 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import { chooseTopic } from "../../models/ChooseTopic";
 
 export default function StudentTopicLink(props) {
+  const handleChoose = async (e) => {
+    console.log(e);
+    e.preventDefault()
+    const data = await chooseTopic(props._id.$oid)
+
+    window.location.reload()
+    console.log(data);
+  }
+
   let rank = (
-    <Button variant="contained" color="success">
+    <Button variant="contained" color="success" onClick={handleChoose}>
       CHOOSE
     </Button>
   );
