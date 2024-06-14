@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { getTopics } from "../../models/Topic";
 import "./StudentTopicList.css";
 import * as React from "react";
+import { getCookie } from "../../models/Cookie";
 
 export default function StudentTopicList() {
   const [topics, setTopics] = useState();
@@ -18,6 +19,7 @@ export default function StudentTopicList() {
   };
 
   useEffect(() => {
+    getCookie();
     load();
   }, []);
 
@@ -39,12 +41,20 @@ export default function StudentTopicList() {
 
   return (
     <>
-      <h1>List of works</h1>
-      <div className="line"></div>
+      <div id="studentTopicList">
+        <h1>LIST OF TOPICS</h1>
+        <div className="line"></div>
+        <div className="flex4">
+          <div>Název práce</div>
+          <div>Popis práce</div>
+          <div>Rok</div>
+          <div>Předmět</div>
+        </div>
 
-      {topics.map((topic, index) => (
-        <StudentTopicLink key={index} {...topic} />
-      ))}
+        {topics.map((topic, index) => (
+          <StudentTopicLink key={index} {...topic} />
+        ))}
+      </div>
     </>
   );
 }

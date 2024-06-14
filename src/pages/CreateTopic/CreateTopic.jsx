@@ -9,15 +9,25 @@ import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createTopic } from "../../models/Topic";
 
 export default function CreateTopic() {
-  const label = { inputProps: { "aria-label": "Checkbox demo" } };
-
-  const [formData, setFormData] = useState();
+  const [formData, setFormData] = useState({
+    name: "",
+    description: "",
+    year: "",
+    type: "",
+    subject: "",
+  });
   const [info, setInfo] = useState();
   const navigate = useNavigate();
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  useEffect(() => {
+    const { name, description, year, type, subject } = formData;
+    setIsFormValid(name && description && year && type && subject);
+  }, [formData]);
 
   const postForm = async () => {
     const topic = await createTopic(formData);
@@ -35,18 +45,19 @@ export default function CreateTopic() {
 
   const handlePost = (e) => {
     e.preventDefault();
-    postForm();
+    if (isFormValid) {
+      postForm();
+    } else {
+      setInfo("Please fill in all required fields.");
+    }
   };
 
-  const redirectToSuccessPage = (id) => {
-    return navigate(`/createdcat/${id}`);
-  };
   return (
     <>
-      <Link to={"/teacher"}>
-        <Button variant="outlined">Go back</Button>
-      </Link>
       <div id="teacher">
+        <Link to={"/teacher"}>
+          <Button variant="outlined">Go back</Button>
+        </Link>
         <div className="container">
           <div className="columnLeft">
             <TextField
@@ -54,8 +65,9 @@ export default function CreateTopic() {
               label="Název práce"
               variant="filled"
               name="name"
+              inputProps={{ maxLength: 15 }}
               required
-              onChange={(e) => handleChange(e)}
+              onChange={handleChange}
             />
             <br />
             <br />
@@ -68,38 +80,35 @@ export default function CreateTopic() {
               rows={12}
               name="description"
               required
-              onChange={(e) => handleChange(e)}
+              onChange={handleChange}
             />
           </div>
           <br />
           <br />
           <div className="columnRight">
             <FormControl>
-              <FormLabel id="demo-radio-buttons-group-label">
+              <FormLabel id="demo-radio-buttons-group-label" required>
                 Školní rok
               </FormLabel>
               <RadioGroup
                 aria-labelledby="demo-radio-buttons-group-label"
                 name="year"
-                required
+                onChange={handleChange}
               >
                 <FormControlLabel
                   value="2023/24"
                   control={<Radio />}
                   label="2023/24"
-                  onChange={(e) => handleChange(e)}
                 />
                 <FormControlLabel
                   value="2024/25"
                   control={<Radio />}
                   label="2024/25"
-                  onChange={(e) => handleChange(e)}
                 />
                 <FormControlLabel
                   value="2025/26"
                   control={<Radio />}
                   label="2025/26"
-                  onChange={(e) => handleChange(e)}
                 />
               </RadioGroup>
             </FormControl>
@@ -112,25 +121,22 @@ export default function CreateTopic() {
               <RadioGroup
                 aria-labelledby="demo-radio-buttons-group-label"
                 name="type"
-                required
+                onChange={handleChange}
               >
                 <FormControlLabel
                   value="Ročníková práce"
                   control={<Radio />}
                   label="Ročníková práce"
-                  onChange={(e) => handleChange(e)}
                 />
                 <FormControlLabel
                   value="Maturitní práce"
                   control={<Radio />}
                   label="Maturitní práce"
-                  onChange={(e) => handleChange(e)}
                 />
                 <FormControlLabel
                   value="Bakalářská práce"
                   control={<Radio />}
                   label="Bakalářská práce"
-                  onChange={(e) => handleChange(e)}
                 />
               </RadioGroup>
             </FormControl>
@@ -141,37 +147,32 @@ export default function CreateTopic() {
               <RadioGroup
                 aria-labelledby="demo-radio-buttons-group-label"
                 name="subject"
-                required
+                onChange={handleChange}
               >
                 <FormControlLabel
                   value="Hardware"
                   control={<Radio />}
                   label="Hardware"
-                  onChange={(e) => handleChange(e)}
                 />
                 <FormControlLabel
                   value="Programování"
                   control={<Radio />}
                   label="Programování"
-                  onChange={(e) => handleChange(e)}
                 />
                 <FormControlLabel
                   value="Webové aplikace"
                   control={<Radio />}
                   label="Webové aplikace"
-                  onChange={(e) => handleChange(e)}
                 />
                 <FormControlLabel
                   value="Počítačové sítě"
                   control={<Radio />}
                   label="Počítačové sítě"
-                  onChange={(e) => handleChange(e)}
                 />
                 <FormControlLabel
                   value="Číslicová technika"
                   control={<Radio />}
                   label="Číslicová technika"
-                  onChange={(e) => handleChange(e)}
                 />
               </RadioGroup>
             </FormControl>
@@ -180,11 +181,13 @@ export default function CreateTopic() {
             <br />
           </div>
         </div>
+        {info && <div className="info">{info}</div>}
         <div className="sendBtn">
           <Button
             onClick={handlePost}
             variant="contained"
             endIcon={<SendIcon />}
+            disabled={!isFormValid}
           >
             Send
           </Button>

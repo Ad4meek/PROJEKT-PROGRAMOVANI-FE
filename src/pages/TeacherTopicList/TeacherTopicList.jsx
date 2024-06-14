@@ -21,7 +21,7 @@ export default function TeacherTopicList() {
   };
 
   useEffect(() => {
-    getCookie()
+    getCookie();
     load();
   }, []);
 
@@ -43,18 +43,28 @@ export default function TeacherTopicList() {
 
   return (
     <>
-      <h1>List of works</h1>
-      <div className="line"></div>
+      <div id="teacherTopicList">
+        <h1>LIST OF TOPICS</h1>
+        <div className="line"></div>
 
-      <div className="btn">
-        <Link to={"/createtopic"}>
-          <Button variant="outlined">Create topic</Button>
-        </Link>
+        <div className="btn">
+          <Link to={"/createtopic"}>
+            <Button variant="outlined">Create topic</Button>
+          </Link>
+        </div>
+
+        <div className="flex4">
+          <div>Jméno žáka</div>
+          <div>Název práce</div>
+          <div>Popis práce</div>
+          <div>Rok</div>
+          <div>Předmět</div>
+        </div>
+
+        {topics.map((topic, index) => (
+          <TeacherTopicLink key={index} {...topic} />
+        ))}
       </div>
-
-      {topics.map((topic, index) => (
-        <TeacherTopicLink key={index} {...topic} />
-      ))}
     </>
   );
 }

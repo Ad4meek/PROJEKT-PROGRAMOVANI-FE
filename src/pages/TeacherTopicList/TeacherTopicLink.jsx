@@ -28,34 +28,44 @@ export default function TeacherTopicLink(props) {
 
   return (
     <>
-      <div className="flex">
-        {/*<p>{props.student_name}</p> */}
-        <p>Mirek Kokot</p>
-        <p>{props.name}</p>
-        <Accordion className="accordion">
-          <AccordionSummary
-            expandIcon={<ArrowDownwardIcon />}
-            aria-controls="panel1-content"
-            id="panel1-header"
-          >
-            <Typography>Decription</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>{props.description}</Typography>
-          </AccordionDetails>
-        </Accordion>
-        <p>{props.year}</p>
-        <p>{props.subject}</p>
-        <div>{rank}</div>
-
-        <Link to={`/topicupdate/${props._id.$oid}`}>
-          <Button variant="contained">EDIT</Button>
-        </Link>
-
-        <div className="delete">
-          <Button onClick={handleDelete} variant="contained">
-            Delete
-          </Button>
+      <div id="teacherTopicList">
+        <div className="flex">
+          {/*<p>{props.student}</p> */}
+          <div>
+            <p>Mirek Kokot</p>
+          </div>
+          <div>
+            <p>{props.name}</p>
+          </div>
+          <div>
+            <Accordion className="accordion">
+              <AccordionSummary
+                expandIcon={<ArrowDownwardIcon />}
+                aria-controls="panel1-content"
+                id="panel1-header"
+              >
+                <Typography>Decription</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>{props.description}</Typography>
+              </AccordionDetails>
+            </Accordion>
+          </div>
+          <div>
+            <p>{props.year}</p>
+          </div>
+          <div>
+            <p>{props.subject}</p>
+          </div>
+          <div>{rank}</div>
+          <div>
+            <Link to={`/topicupdate/${props._id.$oid}`}>
+              <div className="Button">EDIT</div>
+            </Link>
+          </div>
+          <div className="Button" onClick={handleDelete}>
+            DELETE
+          </div>
         </div>
       </div>
     </>

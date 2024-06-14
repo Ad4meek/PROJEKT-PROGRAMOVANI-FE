@@ -66,40 +66,6 @@ export default function TopicUpdateForm() {
   }
 
   return (
-    /*<>
-      <h1>Topic update form</h1>
-      <p>{id}</p>
-      <form>
-        <input
-          type="text"
-          defaultValue={topic.name}
-          name="name"
-          required
-          placeholder="Enter topic name"
-          onChange={(e) => handleChange(e)}
-        />
-        <input
-          type="number"
-          defaultValue={topic.legs}
-          name="legs"
-          required
-          placeholder="Enter legs"
-          onChange={(e) => handleChange(e)}
-        />
-        <input
-          type="text"
-          defaultValue={topic.color}
-          name="color"
-          required
-          placeholder="Enter color"
-          onChange={(e) => handleChange(e)}
-        />
-        <button onClick={handlePost}>Update topic</button>
-      </form>
-      <Link to={"/teacher"}>
-        <p>Go back</p>
-      </Link>
-    </>*/
     <>
       <Link to={"/teacher"}>
         <Button variant="outlined">Go back</Button>

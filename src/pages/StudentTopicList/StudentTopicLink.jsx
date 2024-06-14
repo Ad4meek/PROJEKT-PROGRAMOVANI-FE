@@ -22,25 +22,37 @@ export default function StudentTopicLink(props) {
 
   return (
     <>
-      <div className="flex3">
-        <p>{props.name}</p>
-        <Accordion className="accordion">
-          <AccordionSummary
-            expandIcon={<ArrowDownwardIcon />}
-            aria-controls="panel1-content"
-            id="panel1-header"
-          >
-            <Typography>Decription</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              <p>{props.description}</p>
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <p>{props.year}</p>
-        <p>{props.subject}</p>
-        <p>{rank}</p>
+      <div id="studentTopicList">
+        <div className="flex3">
+          <div>
+            <p>{props.name}</p>
+          </div>
+          <div>
+            <Accordion className="accordion">
+              <AccordionSummary
+                expandIcon={<ArrowDownwardIcon />}
+                aria-controls="panel1-content"
+                id="panel1-header"
+              >
+                <Typography>Decription</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  <p>{props.description}</p>
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+          </div>
+          <div>
+            <p>{props.year}</p>
+          </div>
+          <div>
+            <p>{props.subject}</p>
+          </div>
+          <div>
+            <p>{rank}</p>
+          </div>
+        </div>
       </div>
     </>
   );

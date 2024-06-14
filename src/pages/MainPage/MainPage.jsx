@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import "./MainPage.css";
 import Button from "@mui/material/Button";
 
-
 export default function MainPage() {
   return (
     <>
