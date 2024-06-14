@@ -7,6 +7,7 @@ import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { deleteTopic } from "../../models/Topic";
+import { Link } from "react-router-dom";
 
 export default function TeacherTopicLink(props) {
   let rank = <div className="btnNotChosen">NOT SELECTED</div>;
@@ -28,6 +29,8 @@ export default function TeacherTopicLink(props) {
   return (
     <>
       <div className="flex">
+        {/*<p>{props.student_name}</p> */}
+        <p>Mirek Kokot</p>
         <p>{props.name}</p>
         <Accordion className="accordion">
           <AccordionSummary
@@ -38,21 +41,22 @@ export default function TeacherTopicLink(props) {
             <Typography>Decription</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
-              {props.descrition}
-            </Typography>
+            <Typography>{props.description}</Typography>
           </AccordionDetails>
         </Accordion>
         <p>{props.year}</p>
         <p>{props.subject}</p>
         <div>{rank}</div>
-        <Button
-          onClick={handleDelete}
-          variant="outlined"
-          startIcon={<DeleteIcon />}
-        >
-          Delete
-        </Button>
+
+        <Link to={`/topicupdate/${props._id.$oid}`}>
+          <Button variant="contained">EDIT</Button>
+        </Link>
+
+        <div className="delete">
+          <Button onClick={handleDelete} variant="contained">
+            Delete
+          </Button>
+        </div>
       </div>
     </>
   );

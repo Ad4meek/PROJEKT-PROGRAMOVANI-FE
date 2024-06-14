@@ -60,3 +60,20 @@ export const getTopics = async () => {
       msg: data.msg
     }
   };
+
+  export const updateTopic = async (id, formData) => {
+    const req = await fetch(`http://localhost:5000/topics/${id}`, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "PUT",
+      body: JSON.stringify(formData),
+    });
+    const data = await req.json();
+    return {
+      status: req.status,
+      payload: data.payload,
+      msg: data.msg,
+    };
+  };

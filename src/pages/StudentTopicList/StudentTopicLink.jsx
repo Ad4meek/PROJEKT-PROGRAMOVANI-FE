@@ -22,7 +22,7 @@ export default function StudentTopicLink(props) {
 
   return (
     <>
-      <div className="flex2">
+      <div className="flex3">
         <p>{props.name}</p>
         <Accordion className="accordion">
           <AccordionSummary
@@ -34,7 +34,7 @@ export default function StudentTopicLink(props) {
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              <p>{props.descrition}</p>
+              <p>{props.description}</p>
             </Typography>
           </AccordionDetails>
         </Accordion>
